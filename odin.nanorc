@@ -14,13 +14,13 @@ color green             "^\s*[A-Za-z0-9_]+\s*::\s*(struct|enum|union)"
 # END
 
 # BEGIN members + functions
-color blue              "\.[A-Za-z0-9_]+|[A-Za-z0-9_]+\("
+color blue              "\.{1}[A-Za-z0-9_]+|[A-Za-z0-9_]+\("
 color white             "\.|\("
 # END
 
 # BEGIN symbols
 color red               "[:;]{1}"
-color brightred         ":{2}|[-+/*<>!~%&|^=]|:="
+color brightred         ":{2}|[-+/*<>!~%&|^=$]|:="
 color yellow            "\[|\]|(->)"
 color cyan              "@"
 # END
@@ -37,7 +37,7 @@ color brightblue        "\<(append)\>"
 color brightgreen       "\<(u?int|(i|u)(8|16|32|64|128)|f(16|32|64)|complex(32|64|128)|(i|u)(16|32|64|128)(le|be))\>"
 color brightgreen       "\<(uintptr|rawptr|any|string|rune|nil|false|true|byte|bool|b(8|16|32|64))\>"
 color brightgreen       "\<(quaternion(128|256)|context|map|typeid|cstring)\>"
-color brightcyan        "\<(package|import|foreign|inline|enum|struct|union|proc)\>"
+color brightcyan        "\<(package|import|foreign|inline|enum|struct|union|proc|in)\>"
 color brightcyan        "\<(using|where|for|if|else|case|switch|return|dynamic|distinct)\>"
 color brightyellow      "\<(break|fallthrough|continue|defer)\>"
 # END
@@ -48,6 +48,6 @@ color yellow            ""(\\.|[^"])*"|'(\\.|[^'])*'"
 
 # BEGIN comments
 color brightblue        "//.*$"
-color brightblue        "/\*.*\*/"
+color brightblue        start="/\*" end="\*/"
 color brightwhite,red   "TODO:?"
 # END
